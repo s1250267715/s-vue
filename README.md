@@ -1,4 +1,4 @@
-# s-vux
+# s-vue-t
 
 > A Vue.js project
 

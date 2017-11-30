@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+const HelloWorld = () => import('@/views/HelloWorld')
 
 Vue.use(Router)
 
