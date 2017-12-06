@@ -14,7 +14,8 @@ const rootPath = USE_DEV_SERVER ? '/api' : '/sunrise-gateway'
 let defaultMode = {
 	intercept: true,
 	showToast: true,
-	needLogin: true
+	needLogin: true,
+	needCode:false,
 }
 
 // create a new instance of axios with a custom config
@@ -153,9 +154,11 @@ export default function ft() {
 		config.mode = Object.assign({}, defaultMode, arguments.length > 2 ? arguments[2] : {}) // 第三个参数默认为{}
 	} 
 	return new Promise((resolve, reject) => {
+		console.log(config)
 		instance.request(config)
 			.then(response => {
-				resolve(response.data.data, response)
+				console.log(response)
+				resolve(config.mode.needCode?response.data:response.data.data)
 			}, err => {
 				reject(err)
 			})

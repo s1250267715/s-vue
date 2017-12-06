@@ -37,10 +37,8 @@ export default {
 			state,
 			dispatch
 		}, payload) {
-			ft("/employee/login", payload, {
-				showToast: true
-			}).then(res => {
-				//				dispatch("getSellerIds")
+			ft("/employee/login", payload,{needCode:true}).then((res)=>{
+				console.log(res)
 			})
 		}
 	}
