@@ -1,6 +1,9 @@
 /*
  * 处理一些公共的操作
  */
+
+import ft from "@/api"
+
 const defaultToastOption = {
 	shown: false,
 	time: 2000,
@@ -16,6 +19,10 @@ export default {
 		toast: {
 			...defaultToastOption
 		},
+		loading: {
+			show: false,
+			test: '加载中...'
+		},
 	},
 	mutations: {
 		showToast(state, payload) {
@@ -25,5 +32,16 @@ export default {
 			})
 		}
 	},
-	actions: {}
+	actions: {
+		login({
+			state,
+			dispatch
+		}, payload) {
+			ft("/employee/login", payload, {
+				showToast: true
+			}).then(res => {
+				//				dispatch("getSellerIds")
+			})
+		}
+	}
 }

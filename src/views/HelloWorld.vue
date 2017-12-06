@@ -1,15 +1,19 @@
 <template>
 	<div class="hello">
+		<img src="../assets/images/logo.png">
 		<h1>{{ msg }}</h1>
 		<p class="mt-10">{{time | time}}</p>
 		<number-count class="mt-10" :count.sync="num" :step="5" :max="20" :min="5" text="自己默认的提示语" v-on:change="dosth"></number-count>
+		<br />
+		<router-link to="about">
+			/about
+		</router-link>
 	</div>
 </template>
 
 <script>
-	import { Actionsheet } from 'vux'
+	import { mapActions } from "vuex"
 	export default {
-		name: 'HelloWorld',
 		data() {
 			return {
 				msg: 'Welcome to Your Vue.js App',
@@ -21,10 +25,19 @@
 				return new Date()
 			}
 		},
-		components: {
-			Actionsheet
+		created() {
+			console.log(this.mockDate, "mock")
+			this.login({
+				appId: 2,
+				loginName: "13362626284",
+				loginPass: "e10adc3949ba59abbe56e057f20f883e",
+				loginType: "1",
+				pageIndex: 2,
+				pageSize: 20
+			})
 		},
 		methods: {
+			...mapActions("common", ["login"]),
 			dosth(payload) {
 				console.log("todo", payload)
 			}
@@ -32,12 +45,11 @@
 	}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
-	/*@import url("../assets/styles/theme.less");*/
-	
-	h1 {
-		color: @theme-color;
-		font-size: 30px
+	.hello {
+		h1 {
+			color: @theme-color;
+			font-size: 30px
+		}
 	}
 </style>

@@ -1,28 +1,26 @@
 <template>
 	<div id="app">
-		<img src="./assets/images/logo.png">
 		<router-view></router-view>
+		<loading v-model="loading.show" :text="loading.text" position="absolute"></loading>
 		<toast v-model="toast.shown" :type="toast.type" :width="toast.width" :time="toast.time" :is-show-mask="toast.isShowMask" :text="toast.text" :position="toast.position"></toast>
 	</div>
 </template>
 
 <script>
 	import Vue from 'vue'
-	import { Toast } from 'vux'
+	import { Toast,Loading } from 'vux'
 	import { mapState, mapMutations } from 'vuex'
 	export default {
 		name: 'app',
 		computed: {
-			...mapState("common", ["toast"])
-		},
-		created() {
-			console.log(this.toast)
+			...mapState("common", ["toast","loading"])
 		},
 		methods: {
 
 		},
 		components: {
-			Toast
+			Toast,
+			Loading
 		}
 	}
 </script>

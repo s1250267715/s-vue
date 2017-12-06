@@ -77,21 +77,25 @@ const webpackConfig = {
 	}
 }
 
-let a = ['vux-ui', {
-	name: 'less-theme',
-	path: 'src/assets/styles/theme.less'
-}, {
-	name: 'style-parser',
-	fn: function(source) {
-		return "@import '../assets/styles/theme.less'\n" + source // 你可以根据this.resourcePath 来确定是否要引入以及引入的相对路径
-	}
-}]
 module.exports = vuxLoader.merge(webpackConfig, {
-	plugins: [{
+	plugins: process.env.NODE_ENV === 'production' ? [{
+		name: 'vux-ui'
+	}, {
+		name: 'less-theme',
+		path: 'src/assets/styles/theme.less'
+	}] : [{
 			name: 'vux-ui'
 		}, {
 			name: 'less-theme',
 			path: 'src/assets/styles/theme.less'
+		},
+		{
+			name: 'duplicate-style',
+			events: {
+				done: function() {
+					console.log('done!')
+				}
+			}
 		}
 	]
 })
