@@ -37,6 +37,7 @@
 		},
 		created() {
 			this.test()
+			console.log(this.mockData)
 //			this.login({
 //				appId: 2,
 //				loginName: "13362626284",
