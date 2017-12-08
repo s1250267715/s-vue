@@ -7,7 +7,7 @@ import axios from 'axios'
 import store from '../store'
 import vm from "@/main"
 
-const USE_DEV_SERVER = false
+const USE_DEV_SERVER = true
 const rootPath = USE_DEV_SERVER ? '/api' : '/sunrise-gateway'
 
 // 拦截模式
@@ -15,7 +15,7 @@ let defaultMode = {
 	intercept: true,
 	showToast: true,
 	needLogin: true,
-	needCode:false,
+	needCode: false,
 }
 
 // create a new instance of axios with a custom config
@@ -72,7 +72,7 @@ instance.interceptors.response.use(function(response) {
 		}
 		// 处理部分异常
 		switch(response.data.code) {
-			case 'LOGIN_001': 
+			case 'LOGIN_001':
 			case '999999':
 			case 'AUTH_002':
 			case 'AUTH_005':
@@ -140,25 +140,23 @@ instance.interceptors.response.use(function(response) {
 	return Promise.reject(error)
 })
 
-// 参数： [url, method, params] [object]
+// 参数： [url="", params={}, mode={intercept: true,showToast: true,needLogin: true,needCode: false, method?}] 
 export default function ft() {
 	const config = {}
 	if(typeof arguments[0] === 'string') {
 		config.url = arguments[0]
-		config.method = arguments.length > 2 && typeof arguments[1] === 'string' ? arguments[1] : 'post' // 默认post方式
+		config.mode = Object.assign({}, defaultMode, arguments.length > 2 ? arguments[2] : {}) // 第三个参数默认为{}
+		config.method = config.mode.hasOwnProperty("method") ? config.mode.method : "post" // 默认post方式
 		if(['post', 'put', 'patch'].indexOf(config.method) !== -1) {
 			config.data = arguments.length > 1 ? arguments[1] : {}
 		} else {
 			config.params = arguments.length > 1 ? arguments[1] : {}
 		}
-		config.mode = Object.assign({}, defaultMode, arguments.length > 2 ? arguments[2] : {}) // 第三个参数默认为{}
-	} 
+	}
 	return new Promise((resolve, reject) => {
-		console.log(config)
 		instance.request(config)
 			.then(response => {
-				console.log(response)
-				resolve(config.mode.needCode?response.data:response.data.data)
+				resolve(config.mode.needCode ? response.data : response.data.data)
 			}, err => {
 				reject(err)
 			})

@@ -1,13 +1,23 @@
 <template>
 	<div class="hello">
-		<img src="../assets/images/logo.png">
+		<div class="VueToNuxtLogo">
+			<div class="Triangle Triangle--two"></div>
+			<div class="Triangle Triangle--one"></div>
+			<div class="Triangle Triangle--three"></div>
+			<div class="Triangle Triangle--four"></div>
+		</div>
 		<h1>{{ msg }}</h1>
 		<p class="mt-10">{{time | time}}</p>
-		<number-count class="mt-10" :count.sync="num" :step="5" :max="20" :min="5" text="自己默认的提示语" v-on:change="dosth"></number-count>
+		<div @click="parent">
+			<number-count class="mt-10" :count.sync="num" :step="5" :max="20" :min="5" text="自己默认的提示语" @change="dosth" @add="another"></number-count>
+		</div>
 		<br />
 		<router-link to="about">
 			/about
 		</router-link>
+		<div>
+			<a href="tel:18703871613">测试打电话</a>
+		</div>
 	</div>
 </template>
 
@@ -26,20 +36,26 @@
 			}
 		},
 		created() {
-			console.log(this.mockDate, "mock")
-			this.login({
-				appId: 2,
-				loginName: "13362626284",
-				loginPass: "e10adc3949ba59abbe56e057f20f883e",
-				loginType: "1",
-				pageIndex: 2,
-				pageSize: 20,
-			})
+			this.test()
+//			this.login({
+//				appId: 2,
+//				loginName: "13362626284",
+//				loginPass: "e10adc3949ba59abbe56e057f20f883e",
+//				loginType: "1",
+//				pageIndex: 2,
+//				pageSize: 20,
+//			})
 		},
 		methods: {
-			...mapActions("common", ["login"]),
+			...mapActions("common", ["login","test"]),
 			dosth(payload) {
 				console.log("todo", payload)
+			},
+			parent() {
+				console.log("parent")
+			},
+			another() {
+				console.log("add")
 			}
 		}
 	}

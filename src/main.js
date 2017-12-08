@@ -8,7 +8,7 @@ import mockDate from "./assets/script/mock.js"
 import router from './router'
 import component from './components'
 import store from './store'
-import "./assets/styles/common.css"
+import "./assets/styles/common.less"
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
 

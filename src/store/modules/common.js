@@ -40,6 +40,11 @@ export default {
 			ft("/employee/login", payload,{needCode:true}).then((res)=>{
 				console.log(res)
 			})
+		},
+		test(){
+			ft('/test',{id:1,name:'shl'},{needCode:true}).then(res=>{
+				console.log(res,"res")
+			})
 		}
 	}
 }

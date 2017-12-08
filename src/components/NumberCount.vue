@@ -56,6 +56,7 @@
 				console.log(nextCount)
 				this.$emit("update:count", nextCount)
 				this.$emit("change",nextCount)
+				this.$emit("add")
 
 			},
 		}
