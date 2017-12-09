@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import "./assets/script/filter.js"
+import  "./assets/script/mock.js"
 import { forEach } from "./assets/script/utils.js"
-import mockDate from "./assets/script/mock.js"
 import router from './router'
 import component from './components'
 import store from './store'
@@ -15,7 +15,6 @@ FastClick.attach(document.body)
 Vue.config.productionTip = false
 
 //将sth挂载到vue原型上
-Vue.prototype.mockDate = mockDate
 Vue.prototype.forEach = forEach
 
 component.init()

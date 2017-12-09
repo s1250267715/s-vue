@@ -1,30 +1,51 @@
 <template>
-	<div id="about"> 
-		<h1 v-for="i in mockDate.list">{{i.name}}</h1>
+	<div id="about">
+		<h1 v-for="(v,i) in mockDate.list">name{{i}}:{{v.name}}</h1>
 		<ol>
-			<li v-for="i in arr">{{i}}</li>
+			<li v-for="(v,i) in arr">age{{i}}:{{v}}</li>
 		</ol>
 	</div>
 </template>
 
 <script>
-	export default{
-		data(){
-			return{
-				arr:[]
+	import { mapActions, mapState } from "vuex"
+	export default {
+		data() {
+			return {
+				arr: []
 			}
 		},
-		created(){
-			this.forEach(this.mockDate.list,i=>{
-				//随便写的，并无意义
-				this.forEach(i.obj,v=>{
-					this.arr.indexOf(v)===-1&&this.arr.push(v)
-				})
-			})
-			
+		computed: {
+			...mapState("common", ["mockDate"])
+		},
+		watch: {
+			//			mockDate(val){
+			//				console.log(typeof val)
+			//				this.forEach(val.list,i=>{
+			//					console.log(i)
+			//					i.age>20&&this.arr.push(i.age)
+			//				})
+			//			},
+			mockDate: {
+				handler: function(val) {
+					console.log(typeof val)
+					this.forEach(val.list, i => {
+						console.log(i)
+						i.age > 20 && this.arr.push(i.age)
+					})
+				},
+				deep: true
+			}
+		},
+		created() {
+			this.test()
+		},
+		methods: {
+			...mapActions("common", ["test"]),
 		}
 	}
 </script>
 
 <style>
+
 </style>

@@ -6,7 +6,7 @@ const obj = {
 	b: "黑夜给了我黑色的眼睛，我却用它来寻找光明",
 	c: "什么？你说是我的？哦，老天，怪不得它看上去是那么熟悉！"
 }
-const mockData = Mock.mock(/test/,{
+ Mock.mock(/test/,{
 	// 属性 list 的值是一个数组，随机生成 1 到 10 个元素
 	code:"000000",
 	'list|1-10': [{
@@ -25,4 +25,3 @@ const mockData = Mock.mock(/test/,{
 		'friends|2': ['jack', 'jim'] // 重复2次属性值生成一个新数组
 	}]
 })
-export default mockData

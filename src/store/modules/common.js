@@ -23,6 +23,7 @@ export default {
 			show: false,
 			test: '加载中...'
 		},
+		mockDate:[],
 	},
 	mutations: {
 		showToast(state, payload) {
@@ -41,9 +42,10 @@ export default {
 				console.log(res)
 			})
 		},
-		test(){
+		test({state}){
 			ft('/test',{id:1,name:'shl'},{needCode:true}).then(res=>{
 				console.log(res,"res")
+				state.mockDate = res || []
 			})
 		}
 	}

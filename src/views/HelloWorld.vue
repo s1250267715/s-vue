@@ -36,8 +36,6 @@
 			}
 		},
 		created() {
-			this.test()
-			console.log(this.mockData)
 //			this.login({
 //				appId: 2,
 //				loginName: "13362626284",
@@ -48,7 +46,7 @@
 //			})
 		},
 		methods: {
-			...mapActions("common", ["login","test"]),
+			...mapActions("common", ["login"]),
 			dosth(payload) {
 				console.log("todo", payload)
 			},
