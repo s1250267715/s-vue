@@ -8,6 +8,7 @@
 		</div>
 		<h1>{{ msg }}</h1>
 		<p class="mt-10">{{time | time}}</p>
+		<p>{{ msgp }}</p>
 		<div @click="parent">
 			<number-count class="mt-10" :count.sync="num" :step="5" :max="20" :min="5" text="自己默认的提示语" @change="dosth" @add="another"></number-count>
 		</div>
@@ -26,7 +27,8 @@
 	export default {
 		data() {
 			return {
-				msg: 'Welcome to Your Vue.js App',
+				msg: 'Welcome to Your Vue.js App随便写的什么的但是大多数都是',
+				msgp: '随便写的什么的但是大多数都是',
 				num: 10
 			}
 		},
@@ -65,6 +67,9 @@
 		h1 {
 			color: @theme-color;
 			font-size: 30px
+		}
+		p{
+			font-size: 30px;
 		}
 	}
 </style>

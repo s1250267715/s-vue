@@ -8,12 +8,12 @@
 
 <script>
 	import Vue from 'vue'
-	import { Toast,Loading } from 'vux'
+	import { Toast, Loading } from 'vux'
 	import { mapState, mapMutations } from 'vuex'
 	export default {
 		name: 'app',
 		computed: {
-			...mapState("common", ["toast","loading"])
+			...mapState("common", ["toast", "loading"])
 		},
 		methods: {
 
@@ -24,3 +24,6 @@
 		}
 	}
 </script>
+<style lang="less">
+	/*@import '~vux/src/styles/reset.less';*/
+</style>
