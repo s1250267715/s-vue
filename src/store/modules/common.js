@@ -6,7 +6,7 @@ import ft from "@/api"
 
 const defaultToastOption = {
 	shown: false,
-	time: 2000,
+	time: 200000,
 	type: 'text',
 	width: 'auto',
 	position: 'top',

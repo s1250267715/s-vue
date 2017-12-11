@@ -1,6 +1,7 @@
 /*
  * 公共样式
  */
+
 body {
     width: 100%;
     height: 100%;
@@ -69,6 +70,24 @@ body {
     @keyframes goright {
         100% {
             left: 70px;
+        }
+    }
+}
+
+.vux-toast {
+    .weui-toast {
+        max-width: 80%;
+        padding: 0 20px 10px;
+        &.vux-toast-top {
+            top: 196px;
+        }
+        .weui-toast__content {
+            font-size: 27px;
+            margin: 5px 0;
+            line-height: 35px;
+        }
+        .weui-icon_toast {
+            font-size: 30px;
         }
     }
 }

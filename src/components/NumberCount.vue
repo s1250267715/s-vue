@@ -48,6 +48,7 @@
 					nextCount -= this.step
 					if(nextCount < this.min) {
 						this.showToast({
+							type:"cancel",
 							text: "超出最小值"
 						})
 						return false
