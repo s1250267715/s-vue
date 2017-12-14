@@ -7,23 +7,22 @@
 </template>
 
 <script>
-	import Vue from 'vue'
-	import { Toast, Loading } from 'vux'
-	import { mapState, mapMutations } from 'vuex'
-	export default {
-		name: 'app',
-		computed: {
-			...mapState("common", ["toast", "loading"])
-		},
-		methods: {
+import { Toast, Loading } from 'vux'
+import { mapState } from 'vuex'
 
-		},
-		components: {
-			Toast,
-			Loading
-		}
-	}
+export default {
+  computed: {
+    ...mapState('common', ['toast', 'loading'])
+  },
+  methods: {
+
+  },
+  components: {
+    Toast,
+    Loading
+  }
+}
 </script>
 <style lang="less">
-	/*@import '~vux/src/styles/reset.less';*/
+/*@import '~vux/src/styles/reset.less';*/
 </style>

@@ -4,10 +4,10 @@
 
 import Vue from 'vue'
 
-import NumberCount from "@/components/NumberCount"
+import NumberCount from '@/components/NumberCount'
 
 export default {
-	init() {
-		Vue.component("NumberCount", NumberCount)
-	}
+  init  () {
+    Vue.component('NumberCount', NumberCount)
+  }
 }

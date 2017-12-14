@@ -23,53 +23,53 @@
 </template>
 
 <script>
-	import { mapActions } from "vuex"
-	export default {
-		data() {
-			return {
-				msg: 'Welcome to Your Vue.js App随便写的什么的但是大多数都是',
-				msgp: '随便写的什么的但是大多数都是',
-				num: 10
-			}
-		},
-		computed: {
-			time() {
-				return new Date()
-			}
-		},
-		created() {
-//			this.login({
-//				appId: 2,
-//				loginName: "13362626284",
-//				loginPass: "e10adc3949ba59abbe56e057f20f883e",
-//				loginType: "1",
-//				pageIndex: 2,
-//				pageSize: 20,
-//			})
-		},
-		methods: {
-			...mapActions("common", ["login"]),
-			dosth(payload) {
-				console.log("todo", payload)
-			},
-			parent() {
-				console.log("parent")
-			},
-			another() {
-				console.log("add")
-			}
-		}
-	}
+import { mapActions } from 'vuex'
+export default {
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App随便写的什么的但是大多数都是',
+      msgp: '随便写的什么的但是大多数都是',
+      num: 10
+    }
+  },
+  computed: {
+    time () {
+      return new Date()
+    }
+  },
+  created () {
+    // this.login({
+    //   appId: 2,
+    //   loginName: '13362626284',
+    //   loginPass: 'e10adc3949ba59abbe56e057f20f883e',
+    //   loginType: '1',
+    //   pageIndex: 2,
+    //   pageSize: 20
+    // })
+  },
+  methods: {
+    ...mapActions('common', ['login']),
+    dosth (payload) {
+      console.log('todo', payload)
+    },
+    parent () {
+      console.log('parent')
+    },
+    another () {
+      console.log('add')
+    }
+  }
+}
 </script>
 
 <style lang="less">
-	.hello {
-		h1 {
-			color: @theme-color;
-			font-size: 30px
-		}
-		p{
-			font-size: 30px;
-		}
-	}
+.hello {
+  h1 {
+    color: @theme-color;
+    font-size: 30px;
+  }
+  p {
+    font-size: 30px;
+  }
+}
 </style>
