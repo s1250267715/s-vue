@@ -141,7 +141,7 @@ instance.interceptors.response.use(function (response) {
 
 /*
  * @param {String} url
- * @param {} params
+ * @param {Object} params
  * @param {intercept: true,showToast: true,needLogin: true,needCode: false, method: 'post'} mode
  */
 export default function ft () {
