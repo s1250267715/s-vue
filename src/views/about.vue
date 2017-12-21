@@ -18,6 +18,7 @@ export default {
   computed: {
     ...mapState('common', ['mockDate'])
   },
+
   watch: {
     mockDate: {
       handler: function (val) {
@@ -39,6 +40,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang='less'>
+h1,
+li {
+  margin-top: 20px;
+  font-size: 30px;
+}
 </style>

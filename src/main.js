@@ -12,7 +12,13 @@ import {
 import router from './router'
 import component from './components'
 import store from './store'
-import 'reset-css'
+// import 'reset-css'
+import './assets/styles/reset.css'
+// 富文本
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
 import './assets/styles/common.less'
 
 // 添加Fastclick移除移动端点击延迟

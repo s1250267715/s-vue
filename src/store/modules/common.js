@@ -1,12 +1,13 @@
-/*
+'use strict'
+/**
+ * TODO eslint
  * 处理一些公共的操作
  */
-
 import ft from '@/api'
 
 const defaultToastOption = {
   shown: false,
-  time: 200000,
+  time: 2000,
   type: 'text',
   width: 'auto',
   position: 'top',

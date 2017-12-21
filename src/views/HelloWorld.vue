@@ -19,6 +19,9 @@
 		<div>
 			<a href="tel:18703871613">测试打电话</a>
 		</div>
+    <router-link to="quill">
+			/quill
+		</router-link>
 	</div>
 </template>
 
@@ -70,6 +73,11 @@ export default {
   }
   p {
     font-size: 30px;
+  }
+  a {
+    font-size: 30px;
+    display: inline-block;
+    margin-top: 20px;
   }
 }
 </style>
