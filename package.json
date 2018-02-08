@@ -14,6 +14,7 @@
     "axios": "^0.17.1",
     "reset-css": "^2.2.1",
     "vue": "^2.5.2",
+    "vue-qart": "^2.1.1",
     "vue-quill-editor": "^3.0.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",

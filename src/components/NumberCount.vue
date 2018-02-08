@@ -1,8 +1,9 @@
 <template>
-	<div id="number-count">
-		<i class="left" :class="{disabled:count<=min}" @click.stop.prevent="change(-1)">-</i> {{count}}
-		<i class="right" @click.stop.prevent="change(1)">+</i>
-	</div>
+  <div id="number-count">
+    <i class="left" :class="{disabled:count<=min}" @click.stop.prevent="change(-1)">-</i>
+    <input type="text" :value="count" @input.stop.prevent="update">
+    <i class="right" @click.stop.prevent="change(1)">+</i>
+  </div>
 </template>
 
 <script>
@@ -10,7 +11,7 @@ import { mapMutations } from 'vuex'
 export default {
   props: {
     count: {
-      type: Number,
+      type: [Number, String],
       default: 0
     },
     step: {
@@ -27,11 +28,26 @@ export default {
       default: '超出最大值'
     }
   },
-  data  () {
+  data () {
     return {}
   },
   methods: {
     ...mapMutations('common', ['showToast']),
+    update (e) {
+      let v = e.target.value
+      if (v.length === 0) { // 为空
+        return false
+      } else if (!Number(v)) { // 非数字
+        this.showToast({
+          type: 'cancel',
+          text: '请输入数字'
+        })
+        this.$emit('update:count', '')
+        return false
+      }
+
+      this.$emit('update:count', v * 1)
+    },
     change (s) {
       let nextCount = this.count
       console.log(s, 'sign')
@@ -69,8 +85,16 @@ export default {
   width: 150px;
   height: 40px;
   line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  input {
+    width: 60px;
+    height: 100%;
+    text-align: center;
+    border: 1px solid #999;
+    box-sizing: border-box;
+  }
   .left {
-    float: left;
     font-size: 44px;
     width: 35px;
     height: 100%;
@@ -78,7 +102,6 @@ export default {
     border: 1px solid #ddd;
   }
   .right {
-    float: right;
     font-size: 35px;
     width: 35px;
     height: 100%;

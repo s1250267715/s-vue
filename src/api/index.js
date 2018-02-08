@@ -32,9 +32,10 @@ let delay // 在加载比较快时Loading组件一闪而过体验也不大好，
 
 // 请求拦截器
 instance.interceptors.request.use(function (config) {
+  clearTimeout(delay)
   delay = setTimeout(function () {
     store.state.common.loading.show = true
-  }, 150)
+  }, 300)
   if (config.method === 'post') {
     // 封装参数为该格式 {body: ... , ctrlData: {pageIndex: ..., pageSize: ...}}
     // 处理post请求
@@ -64,6 +65,7 @@ instance.interceptors.request.use(function (config) {
 // 响应拦截器
 instance.interceptors.response.use(function (response) {
   clearTimeout(delay)
+  store.state.common.loading.show = false
   const mode = response.config.mode
   if (mode.intercept) {
     if (!response.data || !response.data.hasOwnProperty('code')) {

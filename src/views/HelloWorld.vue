@@ -1,28 +1,32 @@
 <template>
-	<div class="hello">
-		<div class="VueToNuxtLogo">
-			<div class="Triangle Triangle--two"></div>
-			<div class="Triangle Triangle--one"></div>
-			<div class="Triangle Triangle--three"></div>
-			<div class="Triangle Triangle--four"></div>
-		</div>
-		<h1>{{ msg }}</h1>
-		<p class="mt-10">{{time | time}}</p>
-		<p>{{ msgp }}</p>
-		<div @click="parent">
-			<number-count class="mt-10" :count.sync="num" :step="5" :max="20" :min="5" text="自己默认的提示语" @change="dosth" @add="another"></number-count>
-		</div>
-		<br />
-		<router-link to="about">
-			/about
-		</router-link>
-		<div>
-			<a href="tel:18703871613">测试打电话</a>
-		</div>
+  <div class="hello">
+    <div class="VueToNuxtLogo">
+      <div class="Triangle Triangle--two"></div>
+      <div class="Triangle Triangle--one"></div>
+      <div class="Triangle Triangle--three"></div>
+      <div class="Triangle Triangle--four"></div>
+    </div>
+    <h1>{{ msg }}</h1>
+    <p class="mt-10">{{time | time}}</p>
+    <p>{{ msgp }}</p>
+    <div @click="parent">
+      <number-count class="mt-10" :count.sync="num" :step="5" :max="20" :min="5" text="自己默认的提示语" @change="dosth" @add="another"></number-count>
+    </div>
+    <br />
+    <router-link to="about">
+      /about
+    </router-link>
+    <div>
+      <a href="tel:18703871613">测试打电话</a>
+    </div>
     <router-link to="quill">
-			/quill
-		</router-link>
-	</div>
+      /quill
+    </router-link>
+    <br>
+    <router-link to="qrcode">
+      /qrcode
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -67,6 +71,7 @@ export default {
 
 <style lang="less">
 .hello {
+  padding: 20px;
   h1 {
     color: @theme-color;
     font-size: 30px;

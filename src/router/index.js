@@ -3,6 +3,7 @@ import Router from 'vue-router'
 const HelloWorld = () => import('@/views/HelloWorld')
 const About = () => import('@/views/about')
 const Quill = () => import('@/views/quill')
+const Qrcode = () => import('@/views/qrcode')
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/quill',
       name: 'quill',
       component: Quill
+    },
+    {
+      path: '/qrcode',
+      name: 'qrcode',
+      component: Qrcode
     }
   ]
 })
