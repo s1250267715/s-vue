@@ -24,7 +24,8 @@ export default {
       show: false,
       test: '加载中...'
     },
-    mockDate: []
+    mockDate: [],
+    text: {a: 1}
   },
   mutations: {
     showToast (state, payload) {

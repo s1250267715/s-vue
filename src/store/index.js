@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+// 状态持久化
 
 import common from './modules/common'
 

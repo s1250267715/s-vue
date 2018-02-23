@@ -1,10 +1,10 @@
 <template>
-	<div id="about">
-		<h1 v-for="(v,i) in mockDate.list" :key="i">name{{i}}:{{v.name}}</h1>
-		<ol>
-			<li v-for="(v,i) in arr" :key="i">age{{i}}:{{v}}</li>
-		</ol>
-	</div>
+  <div id="about">
+    <h1 v-for="(v,i) in mockDate.list" :key="i">name{{i}}:{{v.name}}</h1>
+    <ol>
+      <li v-for="(v,i) in arr" :key="i">age{{i}}:{{v}}</li>
+    </ol>
+  </div>
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('common', ['mockDate'])
+    ...mapState('common', ['mockDate', 'text'])
   },
 
   watch: {

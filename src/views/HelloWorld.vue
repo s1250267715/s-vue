@@ -13,9 +13,9 @@
       <number-count class="mt-10" :count.sync="num" :step="5" :max="20" :min="5" text="自己默认的提示语" @change="dosth" @add="another"></number-count>
     </div>
     <br />
-    <router-link to="about">
+    <div @click="goPage">
       /about
-    </router-link>
+    </div>
     <div>
       <a href="tel:18703871613">测试打电话</a>
     </div>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
   data () {
     return {
@@ -42,7 +42,8 @@ export default {
   computed: {
     time () {
       return new Date()
-    }
+    },
+    ...mapState('common', ['text'])
   },
   created () {
     // this.login({
@@ -64,6 +65,9 @@ export default {
     },
     another () {
       console.log('add')
+    },
+    goPage () {
+      this.$router.push({ name: 'about', query: { a: JSON.stringify({ text: 'ceshi' }) } })
     }
   }
 }
