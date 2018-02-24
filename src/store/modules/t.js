@@ -25,7 +25,7 @@ export default {
       test: '加载中...'
     },
     mockDate: [],
-    text: {a: 1}
+    obj: {a: 1}
   },
   mutations: {
     showToast (state, payload) {
@@ -35,7 +35,7 @@ export default {
       })
     },
     changeText (state, payload) {
-      state.text = Object.assign({}, state.text, payload)
+      state.obj = Object.assign({}, state.obj, payload)
     }
   },
   actions: {

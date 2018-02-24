@@ -26,11 +26,16 @@
     <router-link to="qrcode">
       /qrcode
     </router-link>
+    <div>
+      <p>{{text.a}}</p>
+      <button @click="t(1)"> 11</button>
+      <button @click="t(-1)"> 22</button>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -57,6 +62,7 @@ export default {
   },
   methods: {
     ...mapActions('common', ['login']),
+    ...mapMutations('common', ['changeText']),
     dosth (payload) {
       console.log('todo', payload)
     },
@@ -67,7 +73,17 @@ export default {
       console.log('add')
     },
     goPage () {
+      this.text.a = 10
       this.$router.push({ name: 'about', query: { a: JSON.stringify({ text: 'ceshi' }) } })
+    },
+    t (n) {
+      if (n > 0) {
+        // this.text.a = 10
+        this.changeText({ a: 10 })
+      } else {
+        // this.text.a = -10
+        this.changeText({ a: -10 })
+      }
     }
   }
 }

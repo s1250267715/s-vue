@@ -4,11 +4,17 @@
     <ol>
       <li v-for="(v,i) in arr" :key="i">age{{i}}:{{v}}</li>
     </ol>
+    <p>{{text.a}}</p>
+    <div>
+      <p>{{obj.a}}</p>
+      <button @click="t(1)"> 11</button>
+      <button @click="t(-1)"> 22</button>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -16,7 +22,8 @@ export default {
     }
   },
   computed: {
-    ...mapState('common', ['mockDate', 'text'])
+    ...mapState('common', ['mockDate', 'text']),
+    ...mapState('t', ['obj'])
   },
 
   watch: {
@@ -35,7 +42,16 @@ export default {
     this.test()
   },
   methods: {
-    ...mapActions('common', ['test'])
+    ...mapActions('common', ['test']),
+    ...mapMutations('t', ['changeText']),
+    t (n) {
+      if (n > 0) {
+        console.log(1)
+        this.changeText({ a: 10 })
+      } else {
+        this.changeText({ a: -10 })
+      }
+    }
   }
 }
 </script>
@@ -45,5 +61,9 @@ h1,
 li {
   margin-top: 20px;
   font-size: 30px;
+}
+p {
+  color: red;
+  font-size: 50px;
 }
 </style>
