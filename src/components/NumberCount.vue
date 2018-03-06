@@ -35,15 +35,16 @@ export default {
     ...mapMutations('common', ['showToast']),
     update (e) {
       let v = e.target.value
+      console.log(v, 'v')
       if (v.length === 0) { // 为空
         return false
       } else if (!Number(v)) { // 非数字
-        this.showToast({
-          type: 'cancel',
-          text: '请输入数字'
-        })
-        this.$emit('update:count', '')
-        return false
+        // this.showToast({
+        //   type: 'cancel',
+        //   text: '请输入数字'
+        // })
+        // this.$emit('update:count', this.count)
+        // return false
       }
 
       this.$emit('update:count', v * 1)

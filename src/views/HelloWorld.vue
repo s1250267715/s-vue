@@ -19,6 +19,7 @@
     <div>
       <a href="tel:18703871613">测试打电话</a>
     </div>
+    <br />
     <router-link to="quill">
       /quill
     </router-link>
@@ -26,8 +27,9 @@
     <router-link to="qrcode">
       /qrcode
     </router-link>
-    <div>
+    <div class="mt-10">
       <p>{{text.a}}</p>
+      <br>
       <button @click="t(1)"> 11</button>
       <button @click="t(-1)"> 22</button>
     </div>
@@ -36,6 +38,7 @@
 
 <script>
 import { mapActions, mapState, mapMutations } from 'vuex'
+import { Icon } from 'vux'
 export default {
   data () {
     return {
@@ -43,6 +46,9 @@ export default {
       msgp: '随便写的什么的但是大多数都是',
       num: 10
     }
+  },
+  components: {
+    Icon
   },
   computed: {
     time () {
@@ -59,6 +65,10 @@ export default {
     //   pageIndex: 2,
     //   pageSize: 20
     // })
+    let m = [{ a: 'xx' }, { a: 'yy' }]
+    // let n = [...m,{a:'xx'}]
+    let n = Object.assign({}, ...m, { a: 'xx' })
+    console.log(n)
   },
   methods: {
     ...mapActions('common', ['login']),

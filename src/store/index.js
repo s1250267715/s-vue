@@ -12,7 +12,9 @@ const store = new Vuex.Store({
     common: common,
     t: t
   },
-  plugins: [createPersistedState()]  // 加上这个就可以了
+  plugins: [createPersistedState({
+    paths: ['t']
+  })]  // 加上这个就可以了
 })
 
 export default store
