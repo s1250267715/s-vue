@@ -34,6 +34,12 @@ export default {
         ...payload
       })
     },
+    hideToast (state, payload) {
+      state.toast = Object.assign({}, defaultToastOption, {
+        shown: false,
+        ...payload
+      })
+    },
     changeText (state, payload) {
       state.text = Object.assign({}, state.text, payload)
     }
